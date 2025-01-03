@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login/Sign Up</title>
+
+    <link rel="stylesheet" href="./sign.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home/homePage.html"
+              >Back To Home Page</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="formBox">
+        <h1 id="title">sign up</h1>
+        <form>
+          <div class="inputGroup">
+            <div class="inputField" id="namefield">
+              <input type="text" placeholder="Name" />
+            </div>
+            <div class="inputField">
+              <input type="email" placeholder="Email" />
+            </div>
+            <div class="inputField">
+              <input type="password" placeholder="Password" />
+            </div>
+          </div>
+          <div class="otherField">
+            <button type="button" id="signup">sign up</button>
+            <button type="button" id="signin" class="visible">sign in</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./sign.js"></script>
+  </body>
+</html>
