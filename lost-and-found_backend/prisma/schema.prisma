@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  email         String   @unique
+  passwordHash  String
+  role          String   @default("user")
+
+  firstName     String?
+  lastName      String?
+  phoneNumber   String?
+
+  claims        Claim[]
+  @@map("users")
+}
+
+model LostItem {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  title       String
+  description String
+  photo       String
+  phoneNumber String?
+  isClaimed   Boolean  @default(false)
+
+  claims      Claim[]
+
+
+
+  @@map("bookmarks")  // Claims associated with this item
+}
+
+model Claim {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+
+  lostItemId  Int
+  lostItem    LostItem @relation(fields: [lostItemId], references: [id])
+
+  // details     String   // User's explanation or proof of ownership
+  status      String   @default("pending") // "pending", "approved", "rejected"
+
+  @@map("claims")
+}
+
+// model Notification {
+//   id          Int      @id @default(autoincrement())
+//   createdAt   DateTime @default(now())
+
+//   userId      Int
+//   user        User     @relation(fields: [userId], references: [id])
+
+//   message     String
+//   isRead      Boolean  @default(false)
+// }
+
+
