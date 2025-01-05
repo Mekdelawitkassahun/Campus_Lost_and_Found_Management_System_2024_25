@@ -1,0 +1,19 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "| Full Name              | Student ID  |\r |------------------------|-------------|\r | Feven Issayas          | UGR/9815/15 |\r | Eyasu Getaneh          | UGR/4953/15 |\r | Hailemichael Molla     | UGR/3629/15 |\r | Mekdelawit Kassahun    | UGR/7097/15 |\r | Samrawit Alemzewd      | UGR/9726/15 |",
+  "main": "lost.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@types/bootstrap": "^5.2.10"
+  }
+}
